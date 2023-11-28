@@ -1,0 +1,60 @@
+    var toReturn = new Array();
+    var count = 0;
+    var max = 0;
+    for ( var i = 0; i < nums.length; i++){
+        if(nums[i].length > max){
+            max = nums[i].length;
+        }
+    }
+    while (count < max){
+        for ( var i = 0; i < nums.length; i++){
+            for ( var j = 0; j < nums[i].length; j++){
+                if( i + j == count ){
+                    toReturn.push(nums[i][j]);
+                }
+            }
+        }
+        count++;
+    }
+    return toReturn;
+    
+    
+    var toReturn = new Array();
+    var i = 0;
+    var j = 0;
+    var direction = 0;
+    var count = 0;
+    while(count < nums.length * nums[0].length){
+        toReturn.push(nums[i][j]);
+        count++;
+        if(direction == 0){
+            if(i == 0 && j < nums[0].length - 1){
+                j++;
+                direction = 1;
+            }else if(i == 0 && j == nums[0].length - 1){
+                i++;
+                direction = 1;
+            }else if(i > 0 && j == nums[0].length - 1){
+                i++;
+                direction = 1;
+            }else if(i > 0 && j < nums[0].length - 1){
+                i--;
+                j++;
+            }
+        }else if(direction == 1){
+            if(j == 0 && i < nums.length - 1){
+                i++;
+                direction = 0;
+            }else if(j == 0 && i == nums.length - 1){
+                j++;
+                direction = 0;
+            }else if(j > 0 && i == nums.length - 1){
+                j++;
+                direction = 0;
+            }else if(j > 0 && i < nums.length - 1){
+                i++;
+                j--;
+            }
+        }
+    }
+    return toReturn;

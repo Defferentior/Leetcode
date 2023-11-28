@@ -1,0 +1,29 @@
+    let answer = [];
+    for (let i = 0; i < l.length; i++){
+        let sub = nums.slice(l[i], r[i] + 1);
+        sub.sort((a,b) => a-b);
+        let diff = sub[1] - sub[0];
+        let isArith = true;
+        for (let j = 1; j < sub.length; j++){
+            if (sub[j] - sub[j-1] != diff){
+                isArith = false;
+                break;
+            }
+        }
+        answer.push(isArith);
+    }
+    return answer;
+
+
+        for (let i = 0; i < l.length; i++){
+        let sub = nums.slice(l[i], r[i] + 1).sort((a,b) => a - b);
+        let diff = sub[1] - sub[0];
+        let flag = true;
+        for (let j = 1; j < sub.length; j++){
+            if (sub[j] - sub[j-1] != diff){
+                flag = false;
+                break;
+            }
+        }
+        answer.push(flag);
+    }
