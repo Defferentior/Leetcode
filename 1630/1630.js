@@ -13,7 +13,7 @@ var checkArithmeticSubarrays = function(nums, l, r) {
         console.log((subArr[subArr.length-1]-subArr[0])%(r[i] - l[i]))
         if ( ((subArr[subArr.length-1]-subArr[0])%(r[i] - l[i])) !== 0 ){
             answer.push(false)
-            console.log('leaving remainder')
+            //console.log('leaving remainder')
             break
         }
         let tes = subArr[l+1]-subArr[l]
