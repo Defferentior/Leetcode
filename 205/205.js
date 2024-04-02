@@ -4,21 +4,31 @@
  * @return {boolean}
  */
 var isIsomorphic = function(s, t) {
-    let map = new Map();
-    let set = new Set();
+    let map = {};
+    let set = {};
 
+    if (s.length != t.length){
+        return false
+    }
     for ( i in s ) {
+        //console.log(s[i])
+        //console.log(t[i])
         if (!map[s[i]]){
-            map[s[i]] = t[i] 
-        }
-        else {
-            if (map[s[i]] != t[i]){
-                return false
+            if (!set[t[i]]){
+                map[s[i]] = t[i] 
+                set[t[i]] = s[i]
             }
         }
+        if (map[s[i]] != t[i]){
+            return false
+        }
+        if (set[t[i]] != s[i]) {
+            return false
+        }
+        //console.log(set)
+        //console.log(map)
     }
-    console.log(map)
     return true
 };
 
-console.log(isIsomorphic('egg','ads'))
+console.log(isIsomorphic('badc','bada'))
